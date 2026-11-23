@@ -1,0 +1,31 @@
+using Lab10_GonzaloDiaz.Api.Configuration;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddApplicationServices(builder.Configuration);
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint(
+            "/swagger/v1/swagger.json",
+            "API de Tickets v1");
+
+        options.RoutePrefix = "swagger";
+    });
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

@@ -1,0 +1,7 @@
+﻿namespace Lab10_GonzaloDiaz.Domain.Ports;
+
+public interface IPasswordHasher
+{
+    string Hash(string password);
+    bool Verify(string password, string passwordHash);
+}

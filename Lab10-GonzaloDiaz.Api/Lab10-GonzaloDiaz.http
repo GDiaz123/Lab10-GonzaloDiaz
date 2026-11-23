@@ -1,0 +1,6 @@
+@Lab10_GonzaloDiaz_HostAddress = http://localhost:5079
+
+GET {{Lab10_GonzaloDiaz_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
